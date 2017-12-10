@@ -1,2 +1,2 @@
 # ExTrain
-Extensible Neural Network trainer 
+Extensible Neural Network trainer
