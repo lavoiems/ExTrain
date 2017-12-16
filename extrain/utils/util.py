@@ -1,12 +1,16 @@
 import numpy as np
 
+
 def transpose(m):
     """
     Transpose a matrix
-    :param l: matrix
+    :param m: matrix (a list of list)
     :return: Transposed list
     """
-    return map(list, zip(*m))
+    try:
+        return map(list, zip(*m))
+    except TypeError:
+        raise TypeError('Argument passed is not a matrix (a list of list)')
 
 
 def shuffle(data):

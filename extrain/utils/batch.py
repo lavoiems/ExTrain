@@ -10,7 +10,7 @@ def _batcher(n, iterable):
     :return: List of minibatches
     """
     args = [iter(iterable)] * n
-    return [transpose(batch) for batch in zip(*args)]
+    return [transpose(list(batch)) for batch in zip(*args)]
 
 
 def batch(batch_size, datas):
