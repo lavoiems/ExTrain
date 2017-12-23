@@ -1,8 +1,5 @@
-import torch
 import time
 import os
-
-MODEL_FILE_NAME = 'model.pk'
 
 
 class Snapshot(object):
@@ -17,9 +14,33 @@ class Snapshot(object):
         model.save(model.state_dict(), file_path)
 
 
-class Logging(object):
-    def __init__(self, path):
+class LogResult(object):
+    def __init__(self, logger):
+        self.logger = logger
 
-def restore(model, path='./', **kwargs):
-    model.load_state_dict(torch.load(path + MODEL_FILE_NAME))
-    return model
+    def __call__(self, epoch, results):
+        self.logger.info('Epoch: %s. Results: %s' % (epoch, results))
+
+
+class VisualizeSamples(object):
+    def __init__(self, visualizer):
+        self.visualizer = visualizer
+
+    def __call__(self, ):
+        raise NotImplemented('visualizer not implemented yet')
+
+
+class VisualizeTsne(object):
+    def __init__(self, visualizer):
+        self.visualizer = visualizer
+
+    def __call__(self, ):
+        raise NotImplemented('visualizer not implemented yet')
+
+
+class VisualizePlot(object):
+    def __init__(self, visualizer):
+        self.visualizer = visualizer
+
+    def __call__(self, ):
+        raise NotImplemented('visualizer not implemented yet')
